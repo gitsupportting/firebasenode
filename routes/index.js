@@ -17,7 +17,8 @@ const bodyParser = require('body-parser')
 
 // app.use(bodyParser.json())
 router.post('/', cors({ origin: true }), function (req, res, next) {
-  let form = new multiparty.Form();
+  setTimeout(() => {
+    let form = new multiparty.Form();
   form.parse(req, function (err, fields, files) {
     if (err) {
       return res.send(err);
@@ -54,6 +55,7 @@ router.post('/', cors({ origin: true }), function (req, res, next) {
       return res.send(body);
     })    
   })  
+  }, 5000);  
   });
 
 // router.post('/', cors({ origin: true }), function (req, res, next) {
